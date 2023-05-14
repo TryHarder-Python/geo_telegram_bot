@@ -4,12 +4,8 @@ import logging
 from aiogram import Bot, Dispatcher
 
 from commands.routers import Command
+from settings import TOKEN
 
-# Bot token can be obtained via https://t.me/BotFather
-TOKEN = "5900604347:AAH8_8pwQ7Gz7oxdt3t1-FMorzPXGlnByyA"
-
-
-# All handlers should be attached to the Router (or Dispatcher)
 
 async def main() -> None:
     # Dispatcher is a root router
