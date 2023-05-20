@@ -6,6 +6,7 @@ class Command:
     router = Router()
     commands = {
         'start': 'Start the bot',
+        'get_location': 'Get saved location',
     }
 
     @classmethod
@@ -13,7 +14,7 @@ class Command:
         """
         This function register all routers in the project
         """
-        from commands import start
+        from handlers import start
 
         # Create a router and register all handlers from all routers
 

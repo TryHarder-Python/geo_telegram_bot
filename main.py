@@ -1,22 +1,18 @@
 import asyncio
 import logging
 
-from aiogram import Bot, Dispatcher
+from aiogram import Dispatcher
 
-from commands.routers import Command
-from settings import TOKEN
+from routers import Command
+from settings import STORAGE, BOT
 
 
 async def main() -> None:
     # Dispatcher is a root router
-    dp = Dispatcher()
-    # ... and all other routers should be attached to Dispatcher
+    dp = Dispatcher(storage=STORAGE)
     dp.include_router(Command.register_routers())
-    # Initialize Bot instance with a default parse mode which will be passed to all API calls
-    bot = Bot(TOKEN, parse_mode="HTML")
-    await bot.set_my_commands(Command.collect_my_commands())
-    # And the run events dispatching
-    await dp.start_polling(bot)
+    await BOT.set_my_commands(Command.collect_my_commands())
+    await dp.start_polling(BOT)
 
 
 if __name__ == "__main__":
