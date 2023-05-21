@@ -8,13 +8,13 @@ from keyboards.reply_keyboard import ReplyKeyboardMarkup
 start_router = Router()
 
 
-@start_router.message(Command(commands=["start"]))
+@start_router.message(Command(commands=['start']))
 async def command_start_handler(message: Message) -> None:
     """
     This handler receive messages with `/start` command
     """
     await message.answer(
-        f"Привет, <b>{message.from_user.full_name}</b>! Я бот который помогает найти место на картке",
+        f'Привет, <b>{message.from_user.full_name}</b>! Я бот который помогает найти место на картке',
         reply_markup=ReplyKeyboardMarkup.start_keyboard(),
     )
 
@@ -27,12 +27,14 @@ async def handle_location(message: Message, state: FSMContext):
     await message.answer('Локация сохранена', reply_markup=types.ReplyKeyboardRemove())
 
 
-@start_router.message(Command(commands=["get_location"]))
+@start_router.message(Command(commands=['get_location']))
 async def handle_get_location(message: types.Message, state: FSMContext):
     location = await state.get_data()
     if location:
         latitude = location['latitude']
         longitude = location['longitude']
-        await message.answer(f"Your saved location: Latitude: {latitude}, Longitude: {longitude}")
+        await message.answer(
+            f'Your saved location: Latitude: {latitude}, Longitude: {longitude}',
+        )
     else:
-        await message.answer("No location found.")
+        await message.answer('No location found.')

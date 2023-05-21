@@ -26,4 +26,7 @@ class Command:
         """
         This function collect all commands from all routers
         """
-        return [BotCommand(command=command, description=description) for command, description in cls.commands.items()]
+        return [
+            BotCommand(command=command, description=description)
+            for command, description in cls.commands.items()
+        ]

@@ -7,4 +7,4 @@ TOKEN = os.getenv('TOKEN')
 
 STORAGE = RedisStorage.from_url('redis://localhost:6379')
 
-BOT = Bot(TOKEN, parse_mode="HTML")
+BOT = Bot(TOKEN, parse_mode='HTML')

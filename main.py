@@ -15,6 +15,6 @@ async def main() -> None:
     await dp.start_polling(BOT)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
     asyncio.run(main())
