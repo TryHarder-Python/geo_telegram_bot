@@ -14,11 +14,12 @@ class Command:
         """
         This function register all routers in the project
         """
-        from handlers import start
+        from handlers import start, location
 
         # Create a router and register all handlers from all routers
 
         cls.router.include_router(start.start_router)
+        cls.router.include_router(location.location_router)
         return cls.router
 
     @classmethod

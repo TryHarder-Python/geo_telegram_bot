@@ -8,7 +8,6 @@ from settings import STORAGE, BOT
 
 
 async def main() -> None:
-    # Dispatcher is a root router
     dp = Dispatcher(storage=STORAGE)
     dp.include_router(Command.register_routers())
     await BOT.set_my_commands(Command.collect_my_commands())
